@@ -7,12 +7,19 @@ import '../helper/helper.dart';
 import '../models/note.dart';
 
 class UserNotes extends StatefulWidget {
+  final String pageTitle;
+
+  UserNotes({this.pageTitle});
+
   @override
-  _UserNotesState createState() => _UserNotesState();
+  _UserNotesState createState() => _UserNotesState(pageTitle: this.pageTitle);
 }
 
 class _UserNotesState extends State<UserNotes> {
   List<Note> _userNotes = [];
+  final String pageTitle;
+
+  _UserNotesState({this.pageTitle});
 
   void _addNotes(String title, String description) {
     int id = 1;
@@ -69,17 +76,34 @@ class _UserNotesState extends State<UserNotes> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        AddNote(
-          addNote: _addNotes,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          pageTitle,
+          style: TextStyle(color: Colors.black),
         ),
-        NoteList(
-          notes: _userNotes,
-          deleteNote: _deleteNote,
-          completeNote: _completeNote,
-        )
-      ],
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: <Widget>[FlatButton(child: Icon(Icons.more_vert), onPressed: () {},)],
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          color: Color.fromARGB(255, 224, 224, 224),
+          width: double.infinity,
+          child: Column(
+            children: <Widget>[
+              AddNote(
+                addNote: _addNotes,
+              ),
+              NoteList(
+                notes: _userNotes,
+                deleteNote: _deleteNote,
+                completeNote: _completeNote,
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

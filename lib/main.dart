@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './widgets/home.dart';
+import './widgets/user_notes.dart';
 
 void main() => runApp(TodoApp());
 
@@ -12,7 +12,7 @@ class TodoApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: new ThemeData(
             primarySwatch: Colors.blue, secondaryHeaderColor: Colors.black),
-      home: Home(pageTitle: 'Notes',),
+      home: UserNotes(pageTitle: 'Notes',),
     );
   }
 }
