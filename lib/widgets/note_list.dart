@@ -32,8 +32,19 @@ class NoteList extends StatelessWidget {
                   ? ListView.builder(
                       itemBuilder: (BuildContext context, int index) {
                         return Dismissible(
-                          background: Container(color: Colors.brown),
-                          secondaryBackground: Container(color: Colors.red),
+                          background: Container(
+                            color: Colors.brown,
+                            child: Icon(Icons.check),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 20),
+                            alignment: Alignment.centerLeft,
+                          ),
+                          secondaryBackground: Container(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 20),
+                              alignment: Alignment.centerRight,
+                              color: Colors.red,
+                              child: Icon(Icons.delete)),
                           child: NoteListItem(
                               currentIndex: index,
                               note: notes[index],
@@ -43,7 +54,8 @@ class NoteList extends StatelessWidget {
                             if (direction == DismissDirection.startToEnd &&
                                 notes[index].isCompleted) {
                               return false;
-                            } else if (direction == DismissDirection.endToStart) {
+                            } else if (direction ==
+                                DismissDirection.endToStart) {
                               final ConfirmAction action =
                                   await asyncConfirmation(
                                       context: context,
