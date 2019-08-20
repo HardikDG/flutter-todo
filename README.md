@@ -1,6 +1,6 @@
 # todo_list
 
-To do List 
+To do List in flutter v1.78
 
 Features:
  - Add a new note
