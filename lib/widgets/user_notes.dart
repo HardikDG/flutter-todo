@@ -84,7 +84,7 @@ class _UserNotesState extends State<UserNotes> {
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        actions: <Widget>[FlatButton(child: Icon(Icons.more_vert), onPressed: () {},)],
+        // actions: <Widget>[FlatButton(child: Icon(Icons.more_vert), onPressed: () {},)],
       ),
       body: SingleChildScrollView(
         child: Container(
