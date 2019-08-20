@@ -32,7 +32,8 @@ class NoteList extends StatelessWidget {
                   ? ListView.builder(
                       itemBuilder: (BuildContext context, int index) {
                         return Dismissible(
-                          background: Container(color: Colors.red),
+                          background: Container(color: Colors.brown),
+                          secondaryBackground: Container(color: Colors.red),
                           child: NoteListItem(
                               currentIndex: index,
                               note: notes[index],
